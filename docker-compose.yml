@@ -9,7 +9,7 @@ services:
     container_name: nginx
     working_dir: /app
     volumes:
-        - ./app:/app
+        - ./src:/app
         - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
      - "${HTTP_PORT}:80"
@@ -27,7 +27,7 @@ services:
     expose:
       - "${PHPFPM_PORT}"
     volumes:
-      - ./app:/app
+      - ./src:/app
       - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
     depends_on:
       - postgres

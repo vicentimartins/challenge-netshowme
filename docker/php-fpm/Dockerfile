@@ -4,13 +4,6 @@ FROM php:8-fpm
 RUN mkdir /app;
 WORKDIR /app
 
-# Create app user and group
-RUN addgroup \
-    --gid 1000 \
-    appgroup;
-
-RUN adduser appuser;
-
 # Basic install
 RUN apt update; \
     apt autoremove -y; \
@@ -31,7 +24,3 @@ RUN pecl install xdebug; \
 
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-
-# Enable write out of container
-RUN chown -R appuser:appgroup /app;
-USER appuser
