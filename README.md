@@ -9,8 +9,8 @@ Create a message service that consume a costumer message.
 ## Requirements
 
 - [x] Data sent must be registered in a database
-- [ ] In addition to the data sent by the user, the information must contain IP and Datetime when message was sent
-- [ ] All fields are required
+- [x] In addition to the data sent by the user, the information must contain IP and Datetime when message was sent
+- [x] All fields are required
 - [ ] email and phone number must be valid
 - [ ] The file must not be larger than 500 kb
 - [ ] The file extensions must be pdf, doc, docx, odt, or txt
