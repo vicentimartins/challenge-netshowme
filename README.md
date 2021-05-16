@@ -8,7 +8,7 @@ Create a message service that consume a costumer message.
 
 ## Requirements
 
-- [ ] Data sent must be registered in a database
+- [x] Data sent must be registered in a database
 - [ ] In addition to the data sent by the user, the information must contain IP and Datetime when message was sent
 - [ ] All fields are required
 - [ ] email and phone number must be valid
@@ -53,7 +53,14 @@ Inside php container, then run:
 
 ### How to execute the tests
 
+> After run the project tests a new path will be created. It's possible access it in *src/tests/reports*
+
 1. Create a database test:
 ```bash
  docker-compose exec postgres psql -U <user> postgres -tc "CREATE DATABASE netshowmetest"
+```
+
+2. Run the tests
+```bash
+ docker-compose exec php vendor/bin/phpunit
 ```
