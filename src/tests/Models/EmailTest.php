@@ -3,7 +3,7 @@
 namespace Tests\Models;
 
 use App\Models\Email;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class EmailTest extends TestCase
 {
@@ -18,7 +18,7 @@ class EmailTest extends TestCase
 
     public function testIsAttributesSetAsFillable(): void
     {
-        $expected = ['name', 'email', 'phone', 'message'];
+        $expected = ['name', 'email', 'phone', 'message', 'ip'];
         $actual = $this->instance->getFillable();
 
         self::assertEquals($expected, $actual);

@@ -18,8 +18,10 @@ class EmailFactoryTest extends TestCase
 
     public function testHasEmailFactorySameDataDefinitionForEmail()
     {
-        $expected = (new Email())->getFillable();
-        $actual = array_keys((new EmailFactory())->definition());
+        $model = new Email();
+        $modelFactory = new EmailFactory();
+        $expected = $model->getFillable();
+        $actual = array_keys($modelFactory->definition());
 
         self::assertSame($expected, $actual);
     }

@@ -19,7 +19,7 @@ class AlterEmailsAddAttributes extends Migration
 
     public function down()
     {
-        $attributes = ['name', 'email', 'phone', 'message', 'attachment'];
+        $attributes = ['name', 'email', 'phone', 'message'];
 
         Schema::table('emails', function (Blueprint $table) use ($attributes) {
             foreach ($attributes as $attribute) {

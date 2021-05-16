@@ -1,7 +1,9 @@
 FROM php:8-fpm
 
 # App dir
+RUN useradd netshowme
 RUN mkdir /app;
+RUN chown -R netshowme:netshowme /app
 WORKDIR /app
 
 # Basic install
@@ -24,3 +26,5 @@ RUN pecl install xdebug; \
 
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+USER netshowme

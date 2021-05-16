@@ -26,6 +26,7 @@ class EmailFactory extends Factory
             'email' => 'contact@jhon.dear',
             'phone' => '+5583998242740',
             'message' => 'foo bar baz',
+            'ip' => '127.0.0.1',
         ];
     }
 }
