@@ -50,3 +50,10 @@ Inside php container, then run:
 
 > Please, validate that the port 80 from your localhost stay free. Instead, change to an appropriate free port which
 > NGINX could run well.
+
+### How to execute the tests
+
+1. Create a database test:
+```bash
+ docker-compose exec postgres psql -U <user> postgres -tc "CREATE DATABASE netshowmetest"
+```
