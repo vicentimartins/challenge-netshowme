@@ -5,6 +5,8 @@ namespace Tests\Http\Controllers;
 use App\Models\Email;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Http\Response;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class EmailControllerTest extends TestCase
@@ -23,9 +25,14 @@ class EmailControllerTest extends TestCase
         $data = [
             'name' => 'foo',
             'email' => 'foo@bar.com',
-            'phone' => '083998242740',
+            'phone' => '(083) 9.9824-2740',
             'message' => 'foo bar baz',
         ];
+
+        $file = UploadedFile::fake()
+            ->create('foo', 500, 'text/plain');
+
+        $data['attachment'] = $file;
 
         $this->post('/send-email', $data)
             ->assertStatus(Response::HTTP_FOUND)

@@ -39,23 +39,27 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <form action="{{ route('send-email') }}" class="row g-3" method="post">
+        <form action="{{ route('send-email') }}" class="row g-3" method="post" enctype="multipart/form-data">
           @csrf
           <div class="col-md-12">
             <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" class="form-control" name="name" />
+            <input type="text" id="name" class="form-control" name="name" placeholder="Jhon Dear" required/>
           </div>
           <div class="col-md-6">
             <label for="email" class="form-label">e-mail</label>
-            <input type="email" id="email" class="form-control" name="email" />
+            <input type="email" id="email" class="form-control" name="email" placeholder="jhon@contact.com" required/>
           </div>
           <div class="col-md-6">
             <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" name="phone" />
+            <input type="tel" pattern="\([0-9]{3}\) [0-9]{1}.[0-9]{4}-[0-9]{4}" class="form-control" id="phone" name="phone" placeholder="(083) 9.9824-2740" required/>
+          </div>
+          <div class="col-md-12">
+            <label for="attachment" class="form-label">Attachment</label>
+            <input type="file" name="attachment" id="attachment" class="form-control" required>
           </div>
           <div class="col-md-12">
             <label for="message" class="form-label">Message</label>
-            <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
+            <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Your message here!" required></textarea>
           </div>
           <div class="offset-md-11 col-md-1">
             <button class="btn btn-success">Send</button>

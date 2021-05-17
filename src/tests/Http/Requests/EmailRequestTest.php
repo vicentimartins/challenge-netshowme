@@ -19,7 +19,7 @@ class EmailRequestTest extends TestCase
     public function testIsAllEmailFieldsRequired()
     {
         foreach ($this->emailRequest->rules() as $field => $rule) {
-            self::assertSame(self::PREG_MATCH_OK, preg_match('/(required)/', $rule));
+            self::assertTrue($this->validateRule('require', $rule));
         }
     }
 
@@ -29,5 +29,20 @@ class EmailRequestTest extends TestCase
             ['required', 'email.required', 'phone.digits'],
             array_keys($this->emailRequest->messages())
         );
+    }
+
+    public function testExtraRequirementsFromRules()
+    {
+        $rules = $this->emailRequest->rules();
+
+        self::assertTrue($this->validateRule('unique', $rules['email']), 'Error to validate email');
+        self::assertTrue($this->validateRule('regex', $rules['phone']), 'Error to validate phone');
+    }
+
+    private function validateRule(string $toValidate, string $rule): bool
+    {
+        $regex = sprintf('/(%s)/', $toValidate);
+
+        return self::PREG_MATCH_OK === preg_match($regex, $rule);
     }
 }

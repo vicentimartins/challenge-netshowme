@@ -18,7 +18,7 @@ class EmailTest extends TestCase
 
     public function testIsAttributesSetAsFillable(): void
     {
-        $expected = ['name', 'email', 'phone', 'message', 'ip'];
+        $expected = ['name', 'email', 'phone', 'message', 'ip', 'attachment'];
         $actual = $this->instance->getFillable();
 
         self::assertEquals($expected, $actual);

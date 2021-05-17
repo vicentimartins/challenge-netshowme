@@ -27,6 +27,7 @@ class EmailFactory extends Factory
             'phone' => '+5583998242740',
             'message' => 'foo bar baz',
             'ip' => '127.0.0.1',
+            'attachment' => 'app/storage/app/file.txt',
         ];
     }
 }
