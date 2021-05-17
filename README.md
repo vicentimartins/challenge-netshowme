@@ -11,7 +11,7 @@ Create a message service that consume a costumer message.
 - [x] Data sent must be registered in a database
 - [x] In addition to the data sent by the user, the information must contain IP and Datetime when message was sent
 - [x] All fields are required
-- [ ] email and phone number must be valid
+- [x] email and phone number must be valid
 - [ ] The file must not be larger than 500 kb
 - [ ] The file extensions must be pdf, doc, docx, odt, or txt
 - [ ] The attachment must be stored on disk and only its path must be stored in the database
@@ -53,7 +53,8 @@ Inside php container, then run:
 
 ### How to execute the tests
 
-> After run the project tests a new path will be created. It's possible access it in *src/tests/reports*
+> After run the project tests a new path will be created: *src/tests/reports*. There is allocated all tests information
+> that can be easily accessed via the web browser.
 
 1. Create a database test:
 ```bash
