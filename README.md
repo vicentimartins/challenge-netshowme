@@ -12,7 +12,7 @@ Create a message service that consume a costumer message.
 - [x] In addition to the data sent by the user, the information must contain IP and Datetime when message was sent
 - [x] All fields are required
 - [x] email and phone number must be valid
-- [ ] The file must not be larger than 500 kb
+- [x] The file must not be larger than 500 kb
 - [ ] The file extensions must be pdf, doc, docx, odt, or txt
 - [ ] The attachment must be stored on disk and only its path must be stored in the database
 - [ ] A message must be sent to a confirmation e-mail address. This e-mail must be defined in a configuration file
