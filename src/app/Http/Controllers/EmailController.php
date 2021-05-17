@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmailRequest;
 use App\Models\Email;
-use Illuminate\Http\Request;
 use Throwable;
 
 class EmailController extends Controller
@@ -13,20 +13,15 @@ class EmailController extends Controller
         return view('email.home');
     }
 
-    public function sendEmail(Request $request)
+    public function sendEmail(EmailRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
-        try {
-            Email::create($data);
+        Email::create($data);
 
-            return redirect('/')
-                ->with('email-success', 'Message sent with success');
+        return redirect('/')
+            ->with('email-success', 'Message sent with success');
 
-        } catch (Throwable $exception) {
-            return redirect('/')
-                ->with('email-fail', sprintf('Something is wrong. Error: %s', $exception->getMessage()));
-        }
     }
 }
 

@@ -12,7 +12,7 @@
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./app</directory>
-            <directory suffix=".php">./database</directory>
+            <directory suffix=".php">./database/factories</directory>
         </include>
         <exclude>
             <file>./app/Console/Kernel.php</file>

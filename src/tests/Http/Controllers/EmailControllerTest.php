@@ -23,7 +23,7 @@ class EmailControllerTest extends TestCase
         $data = [
             'name' => 'foo',
             'email' => 'foo@bar.com',
-            'phone' => '+5583998242740',
+            'phone' => '083998242740',
             'message' => 'foo bar baz',
         ];
 
@@ -40,6 +40,6 @@ class EmailControllerTest extends TestCase
         $this->post('/send-email', $data->toArray())
             ->assertStatus(Response::HTTP_FOUND)
             ->assertRedirect(route('email-home'))
-            ->assertSessionHas('email-fail');
+            ->assertSessionHas('errors');
     }
 }
